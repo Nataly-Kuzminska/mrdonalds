@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import dbMenu from './DBMenu';
 import { ListItem } from './ListItem';
+import { Banner } from './Banner';
 
 const MenuStyled = styled.main`
   background-color: #ccc;
@@ -12,17 +13,10 @@ const SectionMenu = styled.section`
 padding: 30px;
 `; 
 
-const BurgerSection= styled.section`
- background: url(engin-akyurt-cTdVYKpUQBQ-unsplash.jpg);
- width: 100%;
- height: 210px;
-`;
 
 export const Menu = () => (
   <MenuStyled>
-  <BurgerSection>
-    <div></div>
-  </BurgerSection>
+     <Banner/>
      <SectionMenu>
          <h2>Бургеры</h2>
          <ListItem itemList={dbMenu.burger}/>
