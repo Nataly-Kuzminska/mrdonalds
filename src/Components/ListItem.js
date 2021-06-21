@@ -40,7 +40,7 @@ const Item = styled.li`
   }
 `;
 
-export const ListItem = ({ itemList }) => (
+export const ListItem = ({ itemList, setOpenItem }) => (
 <List>
     {itemList.map(item=> (
     <Item 

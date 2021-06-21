@@ -6,11 +6,16 @@ import { GlobalStyle } from './Components/GlobalStyle';
 
 
 function App() {
+
+  const [openItem, setOpenItem] = React.useState('');
+
+  console.log('Item:', openItem);
+  
   return (
     <>
     <GlobalStyle/>
     <NavBar/>
-    <Menu/>
+    <Menu setOpenItem= {setOpenItem}/>
     </>
   );
 }
