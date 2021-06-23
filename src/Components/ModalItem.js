@@ -19,8 +19,21 @@ width: 600px;
 height: 600px;
 `;
 
+const Banner = styled.div`
+width: 100%; 
+height: 200px;
+background-color: black;
+background-image: url(${img});
+background-size: cover;
+background-position: center;
+margin-bottom: 20px;
+`;
+
 export const ModalItem= () => (
 <Overlay>
-<Modal>ТЕСТ</Modal>
+ <Modal>
+ <Banner img={img}/>
+ ТЕСТ
+ </Modal>
 </Overlay>
 )
