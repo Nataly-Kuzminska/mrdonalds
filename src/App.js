@@ -8,14 +8,14 @@ import { ModalItem } from './Components/ModalItem';
 
 function App() {
 
-  const [openItem, setOpenItem] = React.useState('');
+  const [openItem, setOpenItem] = React.useState(null);
 
   return (
     <>
     <GlobalStyle/>
     <NavBar/>
     <Menu setOpenItem={setOpenItem}/>
-    <ModalItem openItem={openItem}/>
+    <ModalItem openItem={openItem} setOpenItem={setOpenItem}/>
     </>
   );
 }

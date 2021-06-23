@@ -21,19 +21,31 @@ height: 600px;
 
 const Banner = styled.div`
 width: 100%; 
-height: 200px;
+height: 300px;
 background-color: black;
-background-image: url(${img});
+background-image: url(${({img}) => img});
 background-size: cover;
 background-position: center;
 margin-bottom: 20px;
 `;
 
-export const ModalItem= () => (
-<Overlay>
- <Modal>
- <Banner img={img}/>
- ТЕСТ
- </Modal>
-</Overlay>
+export const ModalItem= ({openItem, setOpenItem}) => {
+function closeModal(e) {
+  if(e.target.id==='overlay') {
+    setOpenItem(null);
+  }
+
+  }
+
+
+  if(!openItem) return null;
+    return (
+    <Overlay id="overlay" onClick={closeModal}> 
+      <Modal>
+        <Banner img={openItem.img}/>
+        {openItem.name}
+        {openItem.price}
+        </Modal>
+    </Overlay>
 )
+};
