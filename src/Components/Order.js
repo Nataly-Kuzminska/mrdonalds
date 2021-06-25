@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ButtonCheckout } from './ButtonCheckout';
+import { OrderListItem } from './OrderListItem';
 
 const OrderStyled = styled.section`
   position: fixed;
@@ -41,7 +42,9 @@ export const Order = () => {
         <OrderTitle>ВАШ ЗАКАЗ</OrderTitle>
         <OrderContent>
           <OrderList>
-
+         <OrderListItem/>
+         <OrderListItem/>
+         <OrderListItem/>
           </OrderList>
         </OrderContent>
         <Total>
