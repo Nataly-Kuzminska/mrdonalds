@@ -18,6 +18,7 @@ const OrderStyled = styled.section`
 
 const OrderTitle = styled.h2`
   text-align: center;
+  margin-bottom: 30px;
 `; 
 
 const OrderContent = styled.div`
@@ -25,15 +26,22 @@ flex-grow: 1;
 
 `;
 
-const OrderList =styled.ul`
+const OrderList =styled.ul` 
 
 `;
 
 const Total =styled.div`
- display: flex;
- & span:first-child {
-   flex-grow: 1;
+  margin: 0 35px 30px;
+  display: flex;
+  & span:first-child {
+    flex-grow: 1;
  }
+`;
+
+const TotalPrice =styled.span`
+  text-align: right;
+  min-width: 65px;
+  margin-left: 20px;
 `;
 
 export const Order = () => {
@@ -50,7 +58,7 @@ export const Order = () => {
         <Total>
           <span>Итого</span>
           <span>5</span>
-          <span>850 Р</span>
+          <TotalPrice>850 Р</TotalPrice> 
         </Total>
         <ButtonCheckout>Оформить</ButtonCheckout>
     </OrderStyled>
