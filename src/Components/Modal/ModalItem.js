@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonCheckout } from './ButtonCheckout';
+import { ButtonCheckout } from '../Styled/ButtonCheckout';
+import { CountItem } from './CountItem';
 
 const Overlay= styled.div`
 position: fixed;
@@ -52,7 +53,9 @@ const closeModal = e => {
   }
 
   }
-  const order = {};
+  const order = {
+    ...openItem 
+  };
   const addToOrder = () => {
     setOrders([...orders, order]);
     setOpenItem(null);
@@ -67,6 +70,7 @@ const closeModal = e => {
               <div> {openItem.name} </div> 
                <div> {openItem.price} </div>
            </HeaderContent>
+           <CountItem/>
            <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
          </Content>
         </Modal>

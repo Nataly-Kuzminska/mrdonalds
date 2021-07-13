@@ -26,15 +26,16 @@ const TrashButton = styled.button`
   background-image: url(${trashImage});
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; 
   cursor: pointer;
 `;
 
-export const OrderListItem = () => (
+export const OrderListItem = ({ order }) => (
 <OrderItemStyled>
-<ItemName>JS Burger</ItemName>
+<ItemName>{order.name}</ItemName>
 <span>2</span> 
-<ItemPrice>750 P</ItemPrice>
+<ItemPrice>{order.price.toLocaleString('ru-RU',
+       { style: 'currency', currency: 'RUB' })}</ItemPrice>
 <TrashButton/>
 </OrderItemStyled>
 );
