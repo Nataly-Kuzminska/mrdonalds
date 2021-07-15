@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ButtonCheckout } from '../Styled/ButtonCheckout';
 import { OrderListItem } from './OrderListItem';
-import { totalPriceItems } from '../Modal/ModalItem';
+import { totalPriceItems } from '../Functions/secondaryFunction';
 
 const OrderStyled = styled.section`
   position: fixed;

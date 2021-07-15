@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ButtonCheckout } from '../Styled/ButtonCheckout';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
+import { totalPriceItems } from '../Functions/secondaryFunction';
 
 const Overlay= styled.div`
 position: fixed;
@@ -52,7 +53,7 @@ const TotalPriceItem = styled.div`
   justify-content: space-between;
 `;
 
-export const totalPriceItems = order => order.price * order.count;
+
 
 export const ModalItem= ({openItem, setOpenItem, orders, setOrders}) => {
 const counter = useCount();

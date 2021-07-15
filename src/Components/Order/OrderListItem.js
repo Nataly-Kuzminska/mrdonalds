@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import trashImage from '../../image/trash.svg';
-import { totalPriceItems } from '../Modal/ModalItem';
+import { totalPriceItems } from '../Functions/secondaryFunction';
 
 const OrderItemStyled = styled.li`
   display: flex;
@@ -13,7 +13,7 @@ const ItemName = styled.span`
 `;
 
 const ItemPrice = styled.span`
-  margin-left: 20px;
+  margin-left: 20px; 
   margin-right: 10px;
   min-width: 65px;
   text-align: right;
