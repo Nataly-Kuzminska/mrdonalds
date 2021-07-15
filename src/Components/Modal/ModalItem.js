@@ -85,7 +85,7 @@ const closeModal = e => {
            <CountItem {...counter}/>
            <TotalPriceItem>
              <span>Цена:</span>
-             <span>{totalPriceItems(order).toLocalString('ru-RU',
+             <span>{totalPriceItems(order).toLocaleString('ru-RU',
              {style: 'currency', currency: 'RUB'})}</span>
            </TotalPriceItem>
            <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>

@@ -67,7 +67,8 @@ export const Order = ({ orders }) => {
         <Total>
           <span>Итого</span>
           <span>5</span>
-          <TotalPrice>{total} Р</TotalPrice> 
+          <TotalPrice>{total.toLocaleString('ru-RU',
+      { style: 'currency', currency: 'RUB' })}</TotalPrice> 
         </Total>
         <ButtonCheckout>Оформить</ButtonCheckout>
     </OrderStyled>
