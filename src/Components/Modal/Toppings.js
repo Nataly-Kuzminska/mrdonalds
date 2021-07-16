@@ -18,13 +18,19 @@ const ToppingCheckbox = styled.input`
   margin-right: 5px;
 `;
 
-export function Toppings() {
+export function Toppings({ toppings, checkToppings }) {
   return (
-    <ToppingWrap>
-      <ToppingLabel>
-        <ToppingCheckbox type="checkbox"/>
-        Допы
-      </ToppingLabel>
-    </ToppingWrap>
+    <>
+      <h3>Добавки</h3>
+      <ToppingWrap>
+      {toppings.map((item, i) => (
+          <ToppingLabel key={i}>
+              <ToppingCheckbox type="checkbox"/>
+              {item.name}
+        </ToppingLabel>
+        ))}
+
+      </ToppingWrap>
+    </>
   )
 }
