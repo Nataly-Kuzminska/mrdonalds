@@ -4,6 +4,8 @@ import { ButtonCheckout } from '../Styled/ButtonCheckout';
 import { CountItem } from './CountItem';
 import { useCount } from '../Hooks/useCount';
 import { totalPriceItems } from '../Functions/secondaryFunction';
+import { formatCurrency } from '../Functions/secondaryFunction';
+import { Toppings } from './Toppings';
 
 const Overlay= styled.div`
 position: fixed;
@@ -81,13 +83,13 @@ const closeModal = e => {
          <Content> 
            <HeaderContent>
               <div> {openItem.name} </div> 
-               <div> {openItem.price} </div>
+               <div> {formatCurrency(openItem.price)} </div>
            </HeaderContent>
            <CountItem {...counter}/>
+           {openItem.toppings && <Toppings/>}
            <TotalPriceItem>
              <span>Цена:</span>
-             <span>{totalPriceItems(order).toLocaleString('ru-RU',
-             {style: 'currency', currency: 'RUB'})}</span>
+             <span>{formatCurrency(totalPriceItems(order))}</span>
            </TotalPriceItem>
            <ButtonCheckout onClick={addToOrder}>Добавить</ButtonCheckout>
          </Content>
