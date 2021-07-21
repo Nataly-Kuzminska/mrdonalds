@@ -9,7 +9,7 @@ import { Toppings } from './Toppings';
 import { Choices } from './Choices';
 import { useToppings } from '../Hooks/useToppings';
 import { useChoices } from '../Hooks/useChoices';
-import { openItem } from '.'
+import { openItem } from '../Hooks/useOpenItem';
 
 const Overlay= styled.div`
 position: fixed;
@@ -62,9 +62,10 @@ const TotalPriceItem = styled.div`
 
 
 export const ModalItem= ({openItem, setOpenItem, orders, setOrders}) => {
-const counter = useCount();
+const counter = useCount(openItem.count);
 const toppings = useToppings(openItem);
 const choices = useChoices(openItem);
+const isEdit = openItem.index > -1;
 
 const closeModal = e => {
   if(e.target.id ==='overlay') {
@@ -76,9 +77,15 @@ const closeModal = e => {
     ...openItem,
     count : counter.count,
     topping : toppings.toppings,
-    choices : choices.choice,
+    choice : choices.choice,
   };
   
+  const editOrder = () => {
+    const newOrders = [...orders];
+    newOrders[openItem.index] = order;
+    setOrders(newOrders);
+    setOpenItem(null);
+  }
 
   const addToOrder = () => {
     setOrders([...orders, order]);
@@ -102,11 +109,11 @@ const closeModal = e => {
              <span>{formatCurrency(totalPriceItems(order))}</span>
            </TotalPriceItem>
            <ButtonCheckout 
-           onClick={addToOrder}
+           onClick={isEdit ? editOrder : addToOrder}
            disabled={order.choices && !order.choice}
-           >Добавить</ButtonCheckout>
+           >{isEdit ? 'Редактировать' : 'Добавить'}</ButtonCheckout>
          </Content>
         </Modal>
-    </Overlay>
+    </Overlay> 
 )
 };

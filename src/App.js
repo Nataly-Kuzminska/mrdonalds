@@ -12,13 +12,13 @@ import { useOrders } from './Components/Hooks/useOrders';
 function App() {
 
   const openItem = useOpenItem();
-  const orders = useOrders();
+  const orders = useOrders(); 
 
   return (
     <>
     <GlobalStyle/>
     <NavBar/>
-    <Order {...orders} />
+    <Order {...orders} {...openItem} />
     <Menu {...openItem}/>
     {openItem.openItem && <ModalItem {...openItem} {...orders}/>}
     </>
